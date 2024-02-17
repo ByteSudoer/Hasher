@@ -1,4 +1,6 @@
 use std::env;
+mod app;
+mod constants;
 
 fn init() {
     let env_key = "RUST_LOG";
@@ -6,9 +8,7 @@ fn init() {
     tracing_subscriber::fmt::init();
 }
 
-fn main() {
+fn main() -> Result<(), eframe::Error> {
     init();
-    tracing::info!("INFO");
-    tracing::debug!("DEBUF");
-    tracing::error!("ERROR");
+    app::hasher::run_hasher()
 }
