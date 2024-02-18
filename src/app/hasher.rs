@@ -52,6 +52,4 @@ pub fn run_hasher() -> Result<(), eframe::Error> {
         options,
         Box::new(|_cc| Box::<AppState>::default()),
     )
-
-    // eframe::run_simple_native(constants::WINDOW_TITLE, options, move |ctx, _frame| {})
 }
