@@ -43,4 +43,4 @@ cargo build --release
 - [ ] Add Support for VNC servers.
 - [ ] Add copy button to UNIX clipboard.
 - [ ] Add File checksum options.
-- [ ] Add the package to the AUR.
+- [X] Add the package to the AUR.

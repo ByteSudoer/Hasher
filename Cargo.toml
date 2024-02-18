@@ -3,7 +3,7 @@
 name = "hasher"
 version = "0.1.0"
 edition = "2021"
-authors = ["ByteSudoer <soussi.mohamednour@gmail.com"]
+authors = ["ByteSudoer <soussi.mohamednour@gmail.com>"]
 readme = "README.md"
 license = "MIT"
 repository = "https://github.com/ByteSudoer/Hasher"
@@ -30,3 +30,26 @@ rstest = "0.18.2"
 [[bin]]
 name = "hasher"
 path = "src/main.rs"
+[package.metadata.deb]
+maintainer = "ByteSudoer <soussi.mohamednour@gmail.com>"
+copyright = "2024, ByteSudoer <soussi.mohamednour@gmail.com>"
+license-file = ["LICENSE", "4"]
+extended-description = """\
+A GUI tool which holds a catalog of various hash and checksums algorithms\
+written in Rust.
+"""
+depends = "$auto"
+section = "utility"
+priority = "optional"
+assets = [
+  [
+    "target/release/hasher",
+    "usr/bin/",
+    "755",
+  ],
+  [
+    "README.md",
+    "usr/share/doc/cargo-deb/README",
+    "644",
+  ],
+]
