@@ -19,3 +19,6 @@ version = "0.3.18"
 features = ["env-filter"]
 [dev-dependencies]
 rstest = "0.18.2"
+[[bin]]
+name = "hasher"
+path = "src/main.rs"

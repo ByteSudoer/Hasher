@@ -1,4 +1,4 @@
-use sha1::{Digest, Sha1};
+use sha1::Digest;
 pub fn hash_md5(input: &str) -> String {
     let data = input.as_bytes();
     let digest = md5::compute(data);
