@@ -16,6 +16,7 @@ sha2 = "0.10.8"
 tiger = "0.2.1"
 
 tracing = "0.1.40"
+whirlpool = "0.10.4"
 [dependencies.tracing-subscriber]
 version = "0.3.18"
 features = ["env-filter"]
