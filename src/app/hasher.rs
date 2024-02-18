@@ -28,7 +28,6 @@ impl eframe::App for AppState {
                     });
                 if ui.add(egui::widgets::Button::new("Hash me")).clicked() {
                     self.result = hash(&self.input, self.algorithm);
-                    println!("AppState: {:?}", self);
                 }
             });
             ui.end_row();
