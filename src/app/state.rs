@@ -29,6 +29,7 @@ pub fn hash(input: &str, algorithm: Algorithm) -> String {
     match algorithm {
         Algorithm::Md5 => hasher::hash_md5(input),
         Algorithm::Md6 => hasher::hash_md6(input),
+        Algorithm::Sha1 => hasher::hash_sha1(input),
         _ => todo!(),
     }
 }
