@@ -30,6 +30,9 @@ pub fn hash(input: &str, algorithm: Algorithm) -> String {
         Algorithm::Md5 => hasher::hash_md5(input),
         Algorithm::Md6 => hasher::hash_md6(input),
         Algorithm::Sha1 => hasher::hash_sha1(input),
+        Algorithm::Sha224 => hasher::hash_sha224(input),
+        Algorithm::Sha256 => hasher::hash_sha256(input),
+        Algorithm::Sha512 => hasher::hash_sha512(input),
         _ => todo!(),
     }
 }

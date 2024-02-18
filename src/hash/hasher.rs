@@ -1,4 +1,5 @@
 use sha1::Digest;
+use sha2::{Sha224, Sha256, Sha512};
 pub fn hash_md5(input: &str) -> String {
     let data = input.as_bytes();
     let digest = md5::compute(data);
@@ -26,5 +27,33 @@ pub fn hash_sha1(input: &str) -> String {
     let result: String = Iterator::map(final_hash.iter(), |byte| format!("{:02X}", byte)).collect();
 
     tracing::info!("SHA-1 Hashed String {input} to {result}");
+    result
+}
+
+pub fn hash_sha224(input: &str) -> String {
+    let mut hasher = Sha224::new();
+    let data = input.as_bytes();
+    hasher.update(data);
+    let final_hash = hasher.finalize();
+    let result: String = Iterator::map(final_hash.iter(), |byte| format!("{:02X}", byte)).collect();
+    tracing::info!("SHA-224 Hashed String {input} to {result}");
+    result
+}
+pub fn hash_sha256(input: &str) -> String {
+    let mut hasher = Sha256::new();
+    let data = input.as_bytes();
+    hasher.update(data);
+    let final_hash = hasher.finalize();
+    let result: String = Iterator::map(final_hash.iter(), |byte| format!("{:02X}", byte)).collect();
+    tracing::info!("SHA-256 Hashed String {input} to {result}");
+    result
+}
+pub fn hash_sha512(input: &str) -> String {
+    let mut hasher = Sha512::new();
+    let data = input.as_bytes();
+    hasher.update(data);
+    let final_hash = hasher.finalize();
+    let result: String = Iterator::map(final_hash.iter(), |byte| format!("{:02X}", byte)).collect();
+    tracing::info!("SHA-512 Hashed String {input} to {result}");
     result
 }
