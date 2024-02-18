@@ -33,6 +33,7 @@ pub fn hash(input: &str, algorithm: Algorithm) -> String {
         Algorithm::Sha224 => hasher::hash_sha224(input),
         Algorithm::Sha256 => hasher::hash_sha256(input),
         Algorithm::Sha512 => hasher::hash_sha512(input),
+        Algorithm::Tiger => hasher::hash_tiger(input),
         _ => todo!(),
     }
 }

@@ -1,5 +1,6 @@
 use sha1::Digest;
 use sha2::{Sha224, Sha256, Sha512};
+use tiger::Tiger;
 pub fn hash_md5(input: &str) -> String {
     let data = input.as_bytes();
     let digest = md5::compute(data);
@@ -55,5 +56,14 @@ pub fn hash_sha512(input: &str) -> String {
     let final_hash = hasher.finalize();
     let result: String = Iterator::map(final_hash.iter(), |byte| format!("{:02X}", byte)).collect();
     tracing::info!("SHA-512 Hashed String {input} to {result}");
+    result
+}
+pub fn hash_tiger(input: &str) -> String {
+    let mut hasher = Tiger::new();
+    let data = input.as_bytes();
+    hasher.update(data);
+    let final_hash = hasher.finalize();
+    let result: String = Iterator::map(final_hash.iter(), |byte| format!("{:02X}", byte)).collect();
+    tracing::info!("Tiger Hashed String {input} to {result}");
     result
 }
