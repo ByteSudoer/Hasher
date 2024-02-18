@@ -6,8 +6,36 @@ A GUI tool which holds a catalog of various hash and checksums algorithms.
 
 
 ## Installation
+- [From the AUR](#From-the-AUR)
+- [From Source Code](#from-Source-Code)
+### From the AUR
+##### Install an AUR helper like:
+- `paru`
+- `yay`
 
-Check the [egui](https://github.com/emilk/egui/tree/master) official documentation to see what packages need to be installed depending on you distribution.
+and then run this command
+```bash 
+paru -S hasher
+```
+### From Source Code
+
+- Check the [egui](https://github.com/emilk/egui/tree/master) official documentation to see what packages need to be installed depending on you distribution.
+- Download `rustup` tool via this link [rust-lang](https://www.rust-lang.org/tools/install) or check the proper documentation of your linux distribution.
+
+- clone this repository
+```bash
+git clone https://github.com/ByteSudoer/Hasher.git
+```
+
+- build the project
+```bash
+cd Hasher
+cargo build --release
+```
+- run the project
+```bash 
+./target/release/hasher
+```
 
 
 ## TODO
@@ -15,3 +43,4 @@ Check the [egui](https://github.com/emilk/egui/tree/master) official documentati
 - [ ] Add Support for VNC servers.
 - [ ] Add copy button to UNIX clipboard.
 - [ ] Add File checksum options.
+- [ ] Add the package to the AUR.
