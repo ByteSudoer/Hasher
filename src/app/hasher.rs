@@ -5,13 +5,19 @@ use eframe::egui;
 impl eframe::App for AppState {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         egui::CentralPanel::default().show(ctx, |ui| {
-            ui.heading(constants::WINDOW_TITLE);
+            ui.horizontal(|ui| {
+                ui.heading(constants::WINDOW_TITLE);
+                ui.add_space(150.0);
+                ui.label("Theme:");
+                egui::widgets::global_dark_light_mode_buttons(ui);
+            });
             ui.horizontal(|ui| {
                 let name_label = ui.label("The string to hash: ");
                 ui.text_edit_singleline(&mut self.input)
                     .labelled_by(name_label.id);
             });
             ui.end_row();
+            ui.add_space(15.0);
             ui.horizontal(|ui| {
                 ui.label("Select a hashing algorithm");
                 egui::ComboBox::from_label("")
@@ -31,12 +37,19 @@ impl eframe::App for AppState {
                 }
             });
             ui.end_row();
+            ui.add_space(15.0);
+
             ui.horizontal(|ui| {
                 let result_label = ui.label("Hash Result :");
 
                 ui.text_edit_multiline(&mut self.result)
                     .labelled_by(result_label.id);
             });
+            ui.add_space(80.0);
+            ui.add(egui::Hyperlink::from_label_and_url(
+                "GitHub",
+                "https://github.com/ByteSudoer/Hasher",
+            ));
         });
     }
 }
