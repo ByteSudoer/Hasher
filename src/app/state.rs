@@ -1,6 +1,8 @@
+use crate::hash::hasher;
 #[derive(Debug)]
 pub struct AppState {
     pub input: String,
+    pub result: String,
     pub algorithm: Algorithm,
 }
 
@@ -8,6 +10,7 @@ impl Default for AppState {
     fn default() -> Self {
         Self {
             input: "".to_string(),
+            result: "".to_string(),
             algorithm: Algorithm::default(),
         }
     }
@@ -17,12 +20,19 @@ impl AppState {
     pub fn new(input: String, algorithm: String) -> Self {
         Self {
             input,
+            result: String::new(),
             algorithm: Algorithm::from(algorithm.as_str()),
         }
     }
 }
+pub fn hash(input: &str, algorithm: Algorithm) -> String {
+    match algorithm {
+        Algorithm::Md5 => hasher::hash_md5(input),
+        _ => todo!(),
+    }
+}
 
-#[derive(Default, Debug, PartialEq)]
+#[derive(Default, Debug, PartialEq, Clone, Copy)]
 pub enum Algorithm {
     #[default]
     Md5,
