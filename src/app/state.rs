@@ -17,13 +17,13 @@ impl Default for AppState {
 }
 
 impl AppState {
-    pub fn new(input: String, algorithm: String) -> Self {
-        Self {
-            input,
-            result: String::new(),
-            algorithm: Algorithm::from(algorithm.as_str()),
-        }
-    }
+    // pub fn new(input: String, algorithm: String) -> Self {
+    //     Self {
+    //         input,
+    //         result: String::new(),
+    //         algorithm: Algorithm::from(algorithm.as_str()),
+    //     }
+    // }
 }
 pub fn hash(input: &str, algorithm: Algorithm) -> String {
     match algorithm {
